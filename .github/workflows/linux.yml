@@ -10,4 +10,4 @@ jobs:
       - name: Get Commit Hash of Submodule
         run: linux_commit_hash=$(git rev-parse HEAD:linux)
       - name: Echo Submodule Commit Hash
-        run: echo linux_commit_hash
+        run: echo $linux_commit_hash
