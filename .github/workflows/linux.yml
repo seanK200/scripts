@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Download Linux Zip file
         run: |
-          ./install-deps.sh
-          linux_commit_hash=$(git rev-parse HEAD:linux) \
-          wget https://github.com/seanK200/linux/archive/${linux_commit_hash}.zip \
-          unzip -q ${linux_commit_hash}.zip \
-          ./build-linux.sh ./linux-${linux_commit_hash} tinyconfig
+          ./install-deps.sh;
+          linux_commit_hash=$(git rev-parse HEAD:linux);
+          wget https://github.com/seanK200/linux/archive/${linux_commit_hash}.zip;
+          unzip -q ${linux_commit_hash}.zip;
+          ./build-linux.sh ./linux-${linux_commit_hash} tinyconfig;
