@@ -1,7 +1,8 @@
 name: Check Linux Submodule Clean Build
-on: push
-  paths:
-    - 'linux/**'
+on: 
+  push:
+    paths:
+      - 'linux/**'
 
 jobs:
   build:
