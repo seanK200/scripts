@@ -3,7 +3,7 @@ name: Check Linux Submodule Clean Build
 on: [push]
 
 env:
-	BUILD_TYPE: Debug
+  BUILD_TYPE: Debug
 
 jobs:
   build:
@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Download Linux Zip file
         run: |
+          ./install-deps.sh
           linux_commit_hash=$(git rev-parse HEAD:linux) \
           wget https://github.com/seanK200/linux/archive/${linux_commit_hash}.zip \
           unzip -q ${linux_commit_hash}.zip \
