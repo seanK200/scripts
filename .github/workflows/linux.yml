@@ -1,6 +1,10 @@
 name: Check Linux Submodule Clean Build
 
-on: [push]
+on:
+  push:
+    branches: [main]
+    paths:
+      - "linux/**"
 
 env:
   BUILD_TYPE: Debug
@@ -11,7 +15,9 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Download Linux Zip file
+        with:
+          submodules: true
+      - name: Check Clean Build
         run: |
           ./install-deps.sh;
           linux_commit_hash=$(git rev-parse HEAD:linux);
