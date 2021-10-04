@@ -10,11 +10,7 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - run: ./install-deps.sh
-      - run: cd ./linux
-      - name: get commit id
-        run: linux_commit_hash=${git rev-parse HEAD}
-      - run: cd ..
-      - run: wget https://github.com/seanK200/linux/archive/${linux_commit_hash}.zip
-      - run: unzip linux-${linux_commit_hash}.zip
-      - run: ./build-linux.sh ./linux-${linux_commit_hash} tinyconfig
+      - name: Get Commit Hash of Submodule
+        run: linux_commit_hash=$(git rev-parse HEAD:linux)
+      - name: Echo Submodule Commit Hash
+        run: echo linux_commit_hash
