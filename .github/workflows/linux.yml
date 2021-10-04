@@ -1,0 +1,19 @@
+name: Check Linux Submodule Clean Build
+on: push
+  paths:
+    - 'linux/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - run: ./install-deps.sh
+      - run: cd ./linux
+      - name: get commit id
+        run: linux_commit_hash=${git rev-parse HEAD}
+      - run: cd ..
+      - run: wget https://github.com/seanK200/linux/archive/${linux_commit_hash}.zip
+      - run: unzip linux-${linux_commit_hash}.zip
+      - run: ./build-linux.sh ./linux-${linux_commit_hash} tinyconfig
