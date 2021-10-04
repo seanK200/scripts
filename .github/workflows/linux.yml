@@ -2,7 +2,7 @@ name: Check Linux Submodule Clean Build
 
 on:
   push:
-    branches: [main]
+    branches: [main, master, csi2115-f21]
     paths:
       - "linux/**"
 
