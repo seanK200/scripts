@@ -2,11 +2,7 @@ name: Check Linux Submodule Clean Build
 
 on:
   push:
-    branches:
-      - "linux/**"
-
-env:
-  BUILD_TYPE: Debug
+    paths: "linux"
 
 jobs:
   build:

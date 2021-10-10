@@ -1,0 +1,17 @@
+name: Clean Compliation Check
+
+on:
+  push:
+    paths: 'test'
+  
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Check compilation
+        run: |
+          make -C test
