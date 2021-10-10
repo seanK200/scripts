@@ -1,11 +1,11 @@
-name: Clean Compliation Check
+name: Check Compile Clean
 
 on:
   push:
     paths: "test/**"
   
 jobs:
-  build:
+  compile:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
@@ -13,5 +13,4 @@ jobs:
         with:
           submodules: true
       - name: Check compilation
-        run: |
-          make -C test
+        run: make -C test
